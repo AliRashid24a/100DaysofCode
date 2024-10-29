@@ -61,3 +61,10 @@ class Snake(Turtle):
         colors = ['red','orange','yellow','green','blue','purple']
         for i in range(len(self.segments)-1):
             self.segments[i].color(rd.choice(colors))
+
+    def reset(self):
+        for bit in self.segments:
+            bit.goto(1000,1000)
+        self.segments.clear()
+        self.createSnake(3)
+        self.head = self.segments[0]

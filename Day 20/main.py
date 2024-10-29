@@ -39,6 +39,8 @@ def startGame():
     
     scoreboard.gameOver()
     food.clear()
+    screen.onkeypress(snake.reset())
+    screen.onkeypress(scoreboard.reset())
     
 
 # handle inputs to move the snake
@@ -48,26 +50,5 @@ screen.onkeypress(snake.down,"Down")
 screen.onkeypress(snake.left,"Left")
 screen.onkeypress(snake.right,"Right")
 screen.onkeypress(startGame,"space")
-
-    
-        
-        
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 screen.exitonclick()
