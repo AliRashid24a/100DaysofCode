@@ -7,9 +7,9 @@ class Scoreboard(Turtle):
         self.hideturtle()
         self.score = -1
         self.highscore = 0
+        self.update_score()
         self.reset()
         self.get_highscore()
-        self.update_score()
         
     def update_score(self):
         self.score += 1
@@ -23,14 +23,17 @@ class Scoreboard(Turtle):
     
     def update_highscore(self):
         self.highscore = self.score
-        with open('data.txt',"w") as file:
+        with open('Day 20\data.txt','w') as file:
             file.write(f"{self.score}")
     
     def get_highscore(self):
-        with open('data.txt',"r") as file:
-            res = file.read()
-            self.highscore = int(res)
-
+        try:
+            with open('Day 20\data.txt',"r") as file:
+                self.highscore = int(file.read())
+        except:
+            with open('Day 20\data.txt','w') as file:
+                file.write("0")
+        
     def reset(self):
         if self.score > self.highscore:
             self.update_highscore()
